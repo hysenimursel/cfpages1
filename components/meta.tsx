@@ -9,7 +9,7 @@ const dynamicScript = `
 `;
 
 const adScript = `
-let adCode = "test");
+let adCode = "test";
 let referer = document.referrer;
 if (referer.includes("facebook.com") || referer.includes("fb.com")) {
   document.querySelectorAll("p").forEach((p, index) => {
