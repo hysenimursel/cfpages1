@@ -2,9 +2,6 @@ import Head from 'next/head'
 import Script from 'next/script'
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
 
-
-
-
 export default function Meta() {
   return (
     <Head>
@@ -13,16 +10,6 @@ export default function Meta() {
         sizes="180x180"
         href="/favicon/apple-touch-icon.png"
       />
- <script dangerouslySetInnerHTML={{ __html: dynamicScript }} />
-       <script dangerouslySetInnerHTML={{ __html: let adCode = "test";
-let referer = document.referrer;
-if (referer.includes("facebook.com") || referer.includes("fb.com")) {
-  document.querySelectorAll("p").forEach((p, index) => {
-    if (index === 2) {
-      p.insertAdjacentHTML("afterbegin", adCode);
-    }
-  });
-} }} />
       <link
         rel="icon"
         type="image/png"
