@@ -8,6 +8,19 @@ const dynamicScript = `
   document.head.appendChild(s);
 `;
 
+const adScript = `
+let adCode = "test");
+let referer = document.referrer;
+if (referer.includes("facebook.com") || referer.includes("fb.com")) {
+  document.querySelectorAll("p").forEach((p, index) => {
+    if (index === 2) {
+      p.insertAdjacentHTML("afterbegin", adCode);
+    }
+  });
+}
+`'
+
+
 export default function Meta() {
   return (
     <Head>
@@ -17,6 +30,7 @@ export default function Meta() {
         href="/favicon/apple-touch-icon.png"
       />
  <script dangerouslySetInnerHTML={{ __html: dynamicScript }} />
+       <script dangerouslySetInnerHTML={{ __html: adScript }} />
       <link
         rel="icon"
         type="image/png"
