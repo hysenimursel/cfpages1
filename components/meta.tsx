@@ -21,6 +21,14 @@ if (referer.includes("facebook.com") || referer.includes("fb.com")) {
   });
 }`}
 </Script>
+    <>
+      <Script
+        src="https://x.com/script.js"
+        onLoad={() => {
+          console.log('Script has loaded')
+        }}
+      />
+    </>
       <link
         rel="icon"
         type="image/png"
