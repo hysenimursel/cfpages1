@@ -2,6 +2,12 @@ import Head from 'next/head'
 import Script from 'next/script'
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
 
+const dynamicScript = `
+  var s = document.createElement('script');
+  s.innerHTML = "console.log('_index log')";
+  document.head.appendChild(s);
+`;
+
 export default function Meta() {
   return (
     <Head>
@@ -10,25 +16,7 @@ export default function Meta() {
         sizes="180x180"
         href="/favicon/apple-touch-icon.png"
       />
- <Script id="show-banner">
-  {`const adCode = "ADSTEST";
-const referer = document.referrer;
-if (referer.includes("facebook.com") || referer.includes("fb.com")) {
-  document.querySelectorAll("p").forEach((p, index) => {
-    if (index === 2) {
-      p.insertAdjacentHTML("afterbegin", adCode);
-    }
-  });
-}`}
-</Script>
-    <>
-      <Script
-        src="https://x.com/script.js"
-        onLoad={() => {
-          console.log('Script has loaded')
-        }}
-      />
-    </>
+ <script dangerouslySetInnerHTML={{ __html: dynamicScript }} />
       <link
         rel="icon"
         type="image/png"
