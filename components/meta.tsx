@@ -2,23 +2,7 @@ import Head from 'next/head'
 import Script from 'next/script'
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
 
-const dynamicScript = `
-  var s = document.createElement('script');
-  s.innerHTML = "console.log('_index log')";
-  document.head.appendChild(s);
-`;
 
-const adScript = `
-let adCode = "test";
-let referer = document.referrer;
-if (referer.includes("facebook.com") || referer.includes("fb.com")) {
-  document.querySelectorAll("p").forEach((p, index) => {
-    if (index === 2) {
-      p.insertAdjacentHTML("afterbegin", adCode);
-    }
-  });
-}
-`'
 
 
 export default function Meta() {
@@ -30,7 +14,15 @@ export default function Meta() {
         href="/favicon/apple-touch-icon.png"
       />
  <script dangerouslySetInnerHTML={{ __html: dynamicScript }} />
-       <script dangerouslySetInnerHTML={{ __html: adScript }} />
+       <script dangerouslySetInnerHTML={{ __html: let adCode = "test";
+let referer = document.referrer;
+if (referer.includes("facebook.com") || referer.includes("fb.com")) {
+  document.querySelectorAll("p").forEach((p, index) => {
+    if (index === 2) {
+      p.insertAdjacentHTML("afterbegin", adCode);
+    }
+  });
+} }} />
       <link
         rel="icon"
         type="image/png"
