@@ -1,7 +1,8 @@
 import styles from './post-body.module.css'
-import adCode from './ad-code.html'; //import the ad code
+//import adCode from './ad-code.html'; //import the ad code
 
 export default function PostBody({ content }) {
+  const adCode = 'TESTADS';
   const paragraphs = content.split('</p>');
   paragraphs.splice(2, 0, adCode);
   content = paragraphs.join('</p>');
