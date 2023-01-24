@@ -12,7 +12,12 @@ useEffect(() => {
       const paragraphs = document.getElementsByTagName('p')
       if (paragraphs.length >= 2) {
         const adContainer = document.createElement('div')
-        adContainer.innerHTML = `ADSTESTING`
+        adContainer.innerHTML = `<!-- Composite Start -->
+<div id="M812219ScriptRootC1410333">
+</div>
+<script src="https://jsc.adskeeper.com/h/o/homeofanimals.com.1410333.js" async>
+</script>
+<!-- Composite End -->`
         paragraphs[1].after(adContainer)
       }
     }
