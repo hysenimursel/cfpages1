@@ -2,19 +2,27 @@ import Head from 'next/head'
 import { useEffect } from 'react'
 import Script from 'next/script'
 
-export default function Meta() {
+export default function Meta({ referer }) {
   const searchParams = new URLSearchParams(window.location.search);
   useEffect(() => {
-    const referer = document.referrer
     if (referer.includes('facebook.com') || referer.includes('fb.com') || referer.includes('m.facebook.com') || searchParams.has('fbclid')) {
-      const paragraphs = document.getElementsByTagName('p')
-      if (paragraphs.length >= 2) {
-        const adContainer = document.createElement('div')
-        adContainer.innerHTML = `
-          <ins class="adsbygoogle" style="display:inline-block;width:600px;height:300px" data-ad-client="ca-pub-1495584723679540" data-ad-slot="3765044096" data-page-url="http://theglobalmagazine.com"></ins>
-        `
-        paragraphs[1].after(adContainer)
-      }
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length) {
+              if (mutation.addedNodes[0].nodeName === 'P') {
+                const paragraphs = document.getElementsByTagName('p')
+                if (paragraphs.length >= 2) {
+                  const adContainer = document.createElement('div')
+                  adContainer.innerHTML = `
+                    <ins class="adsbygoogle" style="display:inline-block;width:600px;height:300px" data-ad-client="ca-pub-1495584723679540" data-ad-slot="3765044096" data-page-url="http://theglobalmagazine.com"></ins>
+                  `
+                  paragraphs[1].after(adContainer)
+                }
+              }
+            }
+          })
+        })
+        observer.observe(document.body, { childList: true, subtree: true })
     }
   }, [])
 
@@ -29,7 +37,7 @@ export default function Meta() {
           __html: `(adsbygoogle = window.adsbygoogle || []).push({});`
         }}
       />
- <link
+<link
         rel="apple-touch-icon"
         sizes="180x180"
         href="/favicon/apple-touch-icon.png"
@@ -57,4 +65,8 @@ export default function Meta() {
       <meta name="theme-color" content="#000" />
     </Head>
   )
+}
+
+export async function getInitialProps({ req }) {
+  return { referer: req.headers.referer }
 }
