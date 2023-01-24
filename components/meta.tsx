@@ -1,44 +1,10 @@
 import Head from 'next/head'
-import { withRouter } from 'next/router'
-import { useEffect } from 'react'
-import Script from 'next/script'
+import { CMS_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
 
-function Meta({ referer = '' }) {
-  const searchParams = new URLSearchParams(window.location.search);
-  useEffect(() => {
-    if (referer.includes('facebook.com') || referer.includes('fb.com') || referer.includes('m.facebook.com') || searchParams.has('fbclid')) {
-        const observer = new MutationObserver((mutations) => {
-          mutations.forEach((mutation) => {
-            if (mutation.addedNodes.length) {
-              if (mutation.addedNodes[0].nodeName === 'P') {
-                const paragraphs = document.getElementsByTagName('p')
-                if (paragraphs.length >= 2) {
-                  const adContainer = document.createElement('div')
-                  adContainer.innerHTML = `
-                    <ins class="adsbygoogle" style="display:inline-block;width:600px;height:300px" data-ad-client="ca-pub-1495584723679540" data-ad-slot="3765044096" data-page-url="http://theglobalmagazine.com"></ins>
-                  `
-                  paragraphs[1].after(adContainer)
-                }
-              }
-            }
-          })
-        })
-        observer.observe(document.body, { childList: true, subtree: true })
-    }
-  }, [])
-
+export default function Meta() {
   return (
     <Head>
-      <Script
-        async
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1495584723679540`}
-      />
-      <Script
-        dangerouslySetInnerHTML={{
-          __html: `(adsbygoogle = window.adsbygoogle || []).push({});`
-        }}
-      />
-<link
+      <link
         rel="apple-touch-icon"
         sizes="180x180"
         href="/favicon/apple-touch-icon.png"
@@ -67,8 +33,3 @@ function Meta({ referer = '' }) {
     </Head>
   )
 }
-
-export async function getInitialProps({ req }) {
-  return { referer: document.referrer }
-}
-export default withRouter(Meta)
