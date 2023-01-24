@@ -5,14 +5,14 @@ import { CMS_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
 
 export default function Meta() {
   useEffect(() => {
-    if (window.location.href.includes('facebook.com')) {
+   // if (window.location.href.includes('facebook.com')) {
       // Add ad code after the second paragraph
       const paragraphs = document.getElementsByTagName('p')
       if (paragraphs.length >= 2) {
         const adContainer = document.createElement('div')
         adContainer.innerHTML = `ADSTESTING`
         paragraphs[1].after(adContainer)
-      }
+  //    }
     }
   }, [])
 
