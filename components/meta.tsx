@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { withRouter } from 'next/router'
 import { useEffect } from 'react'
 import Script from 'next/script'
 
@@ -68,5 +69,6 @@ export default function Meta({ referer = '' }) {
 }
 
 export async function getInitialProps({ req }) {
-  return { referer: req.headers.referer }
+  return { referer: document.referrer }
 }
+export default withRouter(Meta)
