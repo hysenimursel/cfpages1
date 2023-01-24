@@ -12,12 +12,17 @@ useEffect(() => {
       const paragraphs = document.getElementsByTagName('p')
       if (paragraphs.length >= 2) {
         const adContainer = document.createElement('div')
-        adContainer.innerHTML = `<!-- Composite Start -->
-<div id="M812219ScriptRootC1410333">
-</div>
-<script src="https://jsc.adskeeper.com/h/o/homeofanimals.com.1410333.js" async>
-</script>
-<!-- Composite End -->`
+        adContainer.innerHTML = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1495584723679540"
+     crossorigin="anonymous"></script>
+<!-- 400 400 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:600px;height:300px"
+     data-ad-client="ca-pub-1495584723679540"
+     data-ad-slot="3765044096"
+     data-page-url="http://theglobalmagazine.com"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>`
         paragraphs[1].after(adContainer)
       }
     }
