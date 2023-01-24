@@ -15,6 +15,7 @@ export default function Meta() {
   return (
     <Head>
 	    {isFacebook && <script src="https://jsc.adskeeper.com/i/v/ivermectinhumaa1.vercel.app.1411854.js" async></script>}
+	 {isFacebook && <script src="https://jsc.adskeeper.com/i/v/ivermectinhumaa1.vercel.app.1411835.js" async></script>}
          <link
         rel="apple-touch-icon"
         sizes="180x180"
