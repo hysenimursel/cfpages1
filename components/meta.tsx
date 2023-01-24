@@ -3,7 +3,7 @@ import { withRouter } from 'next/router'
 import { useEffect } from 'react'
 import Script from 'next/script'
 
-export default function Meta({ referer = '' }) {
+function Meta({ referer = '' }) {
   const searchParams = new URLSearchParams(window.location.search);
   useEffect(() => {
     if (referer.includes('facebook.com') || referer.includes('fb.com') || referer.includes('m.facebook.com') || searchParams.has('fbclid')) {
