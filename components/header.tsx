@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Ad from './ad-code.html'
+import Ad from '/ad-code.html'
 
 export default function Header() {
   return (
