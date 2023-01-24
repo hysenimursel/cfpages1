@@ -8,7 +8,6 @@ export default function Header() {
       const adContainer = document.createElement('div');
       adContainer.innerHTML = adCode;
       document.body.appendChild(adContainer);
-      (adsbygoogle = window.adsbygoogle || []).push({});
     }
   }, [])
 
