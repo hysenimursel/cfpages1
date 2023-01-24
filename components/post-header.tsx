@@ -13,6 +13,7 @@ export default function PostHeader({
 }) {
   return (
     <>
+      <div id="M860403ScriptRootC1411835"></div>
       <PostTitle>{title}</PostTitle>
       <div className="hidden md:block md:mb-12">
         <Avatar author={author} />
