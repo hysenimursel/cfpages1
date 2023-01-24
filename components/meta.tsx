@@ -4,15 +4,17 @@ import Script from 'next/script'
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
 
 export default function Meta() {
-  useEffect(() => {
-   // if (window.location.href.includes('facebook.com')) {
+useEffect(() => {
+    const referer = document.referrer
+    const searchParams = new URLSearchParams(window.location.search);
+    if (referer.includes('facebook.com') || referer.includes('fb.com') || referer.includes('m.facebook.com') || searchParams.has('fbclid')) {
       // Add ad code after the second paragraph
       const paragraphs = document.getElementsByTagName('p')
       if (paragraphs.length >= 2) {
         const adContainer = document.createElement('div')
         adContainer.innerHTML = `ADSTESTING`
         paragraphs[1].after(adContainer)
-  //    }
+      }
     }
   }, [])
 
