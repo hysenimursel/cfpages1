@@ -13,11 +13,10 @@ export default function Header() {
         }}
       />
       //Inject the ad code into the DOM
-    const adCode = `<script async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1495584723679540" crossorigin="anonymous"></script>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1495584723679540" data-ad-slot="3765044096" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>` 
+    const adCode = `<!-- Composite Start -->
+    <div id="M860403ScriptRootC1411835"></div>
+    <script src="https://jsc.adskeeper.com/i/v/ivermectinhumaa1.vercel.app.1411835.js" async></script>
+    <!-- Composite End -->` 
     const adContainer = document.createElement('div');
       adContainer.innerHTML = adCode;
       document.body.appendChild(adContainer);
