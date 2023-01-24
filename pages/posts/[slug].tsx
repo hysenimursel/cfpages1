@@ -59,7 +59,7 @@ if (referer.includes("facebook.com") || referer.includes("fb.com")) {
                 />
                  <meta
                   property="og:type"
-                  content="article"
+                  content="website"
                 />
                  <meta
                   property="og:description"
