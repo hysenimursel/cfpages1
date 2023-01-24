@@ -5,12 +5,12 @@ export default function Header() {
  useEffect(() => {
     if (document.referrer.includes('facebook.com') || window.location.href.includes('fbclid')) {
       //Inject the ad code into the DOM
-      <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1495584723679540" crossorigin="anonymous"></script>
+    const adCode = `<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1495584723679540" crossorigin="anonymous"></script>
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1495584723679540" data-ad-slot="3765044096" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-` const adContainer = document.createElement('div');
+</script>` 
+    const adContainer = document.createElement('div');
       adContainer.innerHTML = adCode;
       document.body.appendChild(adContainer);
     }
