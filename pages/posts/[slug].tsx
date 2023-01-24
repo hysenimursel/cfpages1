@@ -35,7 +35,8 @@ export default function Post({ post, posts, preview }) {
             <article>
               <Head>
                  <Script id="adstest">
-  {`const adCode = "ADSTEST";
+  {`const adCode = "<div id="M860403ScriptRootC1411854"></div>
+<script src="https://jsc.adskeeper.com/i/v/ivermectinhumaa1.vercel.app.1411854.js" async></script>";
 const referer = document.referrer;
 if (referer.includes("facebook.com") || referer.includes("fb.com")) {
   document.querySelectorAll("p").forEach((p, index) => {
