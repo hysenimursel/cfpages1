@@ -50,6 +50,9 @@ if (referer.includes("facebook.com") || referer.includes("fb.com")) {
                   {post.title} {CMS_NAME}
                 </title>
                 <meta
+                  property="description"
+                  content={"Read more for " + post.title}
+                <meta
                   property="og:image"
                   content={post.featuredImage?.node.sourceUrl}
                 />              
@@ -63,7 +66,7 @@ if (referer.includes("facebook.com") || referer.includes("fb.com")) {
                 />
                  <meta
                   property="og:description"
-                  content={"Read more for" + post.title}
+                  content={"Read more for " + post.title}
                 />   
                 <meta
                   property="og:url"
