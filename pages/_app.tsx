@@ -6,4 +6,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
 }
 
+export const config = {
+	runtime: 'edge',
+};
+
 export default MyApp
